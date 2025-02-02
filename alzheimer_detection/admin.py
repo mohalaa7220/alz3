@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProcessedImage
+from .models import (ProcessedImage, MainTitle, SubTitle)
 
 
 class CustomProcessedImage(admin.ModelAdmin):
@@ -13,3 +13,5 @@ class CustomProcessedImage(admin.ModelAdmin):
 
 
 admin.site.register(ProcessedImage, CustomProcessedImage)
+admin.site.register(MainTitle)
+admin.site.register(SubTitle)

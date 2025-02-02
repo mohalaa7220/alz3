@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- ============= title ================ -->
+{% block title %} info {% endblock %}
+
+<!-- ======= content ========= -->
+{% block content %}
+<main class="pt-5 mt-5">
+  <!-- ============= main ============ -->
+  <div class="top">
+    <div class="left">
+      <h1>Main Titles</h1>
+      <ul>
+        {% for main in main_titles %}
+        <li>
+          <a href="{% url 'info_detail' main.pk %}">{{ main.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="right">
+      <img src="{% static 'img/info.png' %}" alt="info" />
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

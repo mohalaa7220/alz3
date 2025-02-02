@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- ============= title ================ -->
+{% block title %} info {% endblock %}
+
+<!-- ======= content ========= -->
+{% block content %}
+<main class="pt-5 mt-5">
+  <!-- ============= main ============ -->
+  <h1>{{ main_title.title }}</h1>
+  <p>{{ main_title.description }}</p>
+
+  <h2>Related Topics</h2>
+  <ul>
+    {% for sub in main_title.subtitles.all %}
+    <li>
+      <a href="{{ sub.link }}">{{ sub.title }} →</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="{% url 'info' %}">← Back to Main Titles</a></p>
+</main>
+
+{% endblock content %}

@@ -645,6 +645,38 @@ div#div_id_password {
     justify-content: center;
 }
 
-.main .top .right img {
-    width: 100%;
+.top .right img {
+    width: 80%;
+}
+
+.top .left ul {
+    list-style: none;
+}
+
+.top .left ul li {
+    margin-bottom: 20px;
+}
+
+.top .left ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    text-decoration: none;
+    color: var(--paragraph-color);
+    background-color: #ececec4f;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.top .left ul li a span {
+    font-size: 1.5rem;
+    display: block;
+    margin: auto;
 }

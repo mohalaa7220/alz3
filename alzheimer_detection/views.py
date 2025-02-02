@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 import cloudinary.uploader
 from .image_processing import ImageProcessor, ModelHandler
-from .models import ProcessedImage
+from .models import ProcessedImage, MainTitle
 from django.contrib.auth.decorators import login_required
 
 
@@ -19,6 +19,18 @@ def psychological_page(request):
 # ============ about page =============
 def about_page(request):
     return render(request, 'about.html')
+
+
+# ============ about page =============
+def info_page(request):
+    main_titles = MainTitle.objects.all()
+    return render(request, "info.html", {"main_titles": main_titles})
+
+
+# Display details of a selected main title
+def main_title_detail_view(request, pk):
+    main_title = get_object_or_404(MainTitle, pk=pk)
+    return render(request, "info_detail.html", {"main_title": main_title})
 
 
 # ============ processing image page =============

@@ -1,21 +1,20 @@
 {% load static %}
 
 <div class="container">
-    <header>
-        <div>
-            <img src="{% static 'img/logo.png' %}" alt="Elzahimergnosis" />
-        </div>
-        <div>
-            <nav>
-                <a href="/" class="active">Home</a>
-                <a href="/mmse">MMSE</a>
-                <a href="/info.html">Information</a>
-                <a href="/plants.html">Plants</a>
-                <a href="/about">About</a>
-                <a href="/psychological">Psychological Care</a>
-            </nav>
+  <header>
+    <div>
+      <img src="{% static 'img/logo.png' %}" alt="Elzahimergnosis" />
+    </div>
+    <div>
+      <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/mmse">MMSE</a>
+        <a href="/info">Information</a>
+        <a href="/about">About</a>
+        <a href="/psychological">Psychological Care</a>
+      </nav>
 
-            <span>
+      <span>
         <!-- check for user is login -->
         {% if not user.is_authenticated %}
         <a href="{% url 'login' %}" class="btn2">SignIn</a>
@@ -23,6 +22,6 @@
         <!-- ============ profile ============ -->
         {% include 'components/profile.html' %} {% endif %}
       </span>
-        </div>
-    </header>
+    </div>
+  </header>
 </div>
