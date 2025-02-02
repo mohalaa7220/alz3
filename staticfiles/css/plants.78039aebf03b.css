@@ -1,0 +1,71 @@
+.main {
+    flex-grow: 1;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+.main .content {
+    padding-left: 20px;
+}
+
+.main .top {
+    padding: 0 30px;
+}
+
+.main .top h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-family: var(--head-font);
+}
+
+.main .top p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--paragraph-color);
+}
+
+.main .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.main .bottom div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    margin-bottom: 50px;
+}
+
+.main .bottom div a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    text-decoration: none;
+    color: #000;
+    background-color: #BBB;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
+    width: 50%;
+    margin: 0 50px;
+    transition: 0.3s ease;
+}
+
+.main .bottom div a:hover {
+    background-color: #999;
+    color: #222;
+}
+
+.main .bottom div a span {
+    font-size: 28px;
+    display: block;
+    margin: auto;
+}

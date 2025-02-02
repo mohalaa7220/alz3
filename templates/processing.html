@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- ============= title ================ -->
+{% block title %} Processing Image {% endblock %}
+
+<!-- ======= content ========= -->
+{% block content %}
+
+<div class="main flex-row">
+  <div class="img-container">
+    <img src="{% static 'img/main.png' %}" alt="Elzahimergnosis" />
+  </div>
+  <div class="upload-container">
+    <p>Upload your MRI image</p>
+    <form id="uploadForm" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" id="fileInput" accept="image/*" />
+      <button id="uploadBtn" type="button" class="btn-upload">
+        Upload Your Image
+      </button>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <!-- ================ loader ================= -->
+  {% include 'components/loader.html' %}
+
+  <!-- display data -->
+  <section id="data_parent">
+    <h1>Results</h1>
+    <div id="results"></div>
+
+    <a href="{% url 'all_processing' %}" class="btn2">All Processing....</a>
+  </section>
+</div>
+
+{% endblock content %}

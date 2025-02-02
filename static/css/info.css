@@ -1,0 +1,86 @@
+.main {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.main .content {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.main .content h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.main .content h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-family: var(--head-font);
+}
+
+.main .content p {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.8;
+    color: var(--paragraph-color);
+}
+
+.main .content ul {
+    list-style: none;
+}
+
+.main .content ul li {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.main .content ul li a {
+    text-decoration: none;
+    color: #1C28DC;
+}
+
+.main .content .content-with-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.main .content .content-with-img img {
+    width: 70%;
+}
+
+.main .content .content-with-img div {
+    width: 50%;
+    flex-grow: 1;
+}
+
+.main .content .content-with-img div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brain-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.brain-cards div {
+    width: calc((100% - 100px) / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.brain-cards img {
+    width: 80%;
+    margin-bottom: 20px;
+}

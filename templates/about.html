@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- ============= title ================ -->
+{% block title %} psychological care {% endblock %}
+
+<!-- ======= content ========= -->
+{% block content %}
+<main>
+    <!-- ============= main ============ -->
+    <div class="top">
+        <div class="left">
+            <div class="content">
+                <h3>About Web</h3>
+                <p>
+                    This website diagnoses Alzheimer's disease early by entering an MRI image, and the model will tell you what stage you are in, and there is all the information you need to know in the program. This will make it easier for you to know any information regarding
+                    Alzheimer's.
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <img src="{% static 'img/about.png' %}" alt="about" />
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
