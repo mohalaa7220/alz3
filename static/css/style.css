@@ -675,8 +675,42 @@ div#div_id_password {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
+.top .left ul li a:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
 .top .left ul li a span {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: block;
-    margin: auto;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-family: var(--head-font);
+    font-weight: 900;
+}
+
+.info_details p {
+    line-height: 2;
+}
+
+ul.related_list {
+    list-style: inside;
+    line-height: 2.2;
+    padding-left: .5rem;
+}
+
+ul.related_list a {
+    text-decoration: none;
+    color: var(--paragraph-color);
+    transition: all .3s ease;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+ul.related_list a:hover {
+    text-decoration: underline;
+    color: var(--main-color);
 }

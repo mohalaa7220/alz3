@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- ============= title ================ -->
+{% block title %} info {% endblock %}
+
+<!-- ======= content ========= -->
+{% block content %}
+<main class="pt-5 mt-5">
+  <div class="content sub_details">
+    <h2>{{ sub_title.title }}</h2>
+
+    {% for paragraph in sub_title.description.splitlines %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+
+    <p>
+      <a href="{% url 'info_detail' sub_title.main_title.pk %}"
+        >← Back to {{ sub_title.main_title.title }}</a
+      >
+    </p>
+  </div>
+</main>
+{% endblock content %}

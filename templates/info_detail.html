@@ -6,20 +6,24 @@
 <!-- ======= content ========= -->
 {% block content %}
 <main class="pt-5 mt-5">
-  <!-- ============= main ============ -->
-  <h1>{{ main_title.title }}</h1>
-  <p>{{ main_title.description }}</p>
+  <div class="content info_details">
+    <!-- ============= main ============ -->
+    <h2>{{ main_title.title }}</h2>
 
-  <h2>Related Topics</h2>
-  <ul>
-    {% for sub in main_title.subtitles.all %}
-    <li>
-      <a href="{{ sub.link }}">{{ sub.title }} →</a>
-    </li>
+    {% for paragraph in main_title.description.splitlines %}
+    <p>{{ paragraph }}</p>
     {% endfor %}
-  </ul>
 
-  <p><a href="{% url 'info' %}">← Back to Main Titles</a></p>
+    <ul class="related_list">
+      {% for sub in main_title.subtitles.all %}
+      <li>
+        <a href="{% url 'sub_detail' sub.pk %}">{{ sub.title }} →</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'info' %}">← Back to Main Titles</a></p>
+  </div>
 </main>
 
 {% endblock content %}

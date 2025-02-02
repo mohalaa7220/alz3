@@ -25,7 +25,7 @@ class SubTitle(models.Model):
     main_title = models.ForeignKey(
         MainTitle, on_delete=models.CASCADE, related_name="subtitles")
     title = models.CharField(max_length=255)
-    link = models.URLField()
+    description = models.TextField()
 
     def __str__(self):
         return self.title

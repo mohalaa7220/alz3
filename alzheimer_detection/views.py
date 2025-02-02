@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 import cloudinary.uploader
 from .image_processing import ImageProcessor, ModelHandler
-from .models import ProcessedImage, MainTitle
+from .models import (ProcessedImage, MainTitle, SubTitle)
 from django.contrib.auth.decorators import login_required
 
 
@@ -31,6 +31,12 @@ def info_page(request):
 def main_title_detail_view(request, pk):
     main_title = get_object_or_404(MainTitle, pk=pk)
     return render(request, "info_detail.html", {"main_title": main_title})
+
+
+# View to display details of a selected subtitle
+def sub_title_detail_view(request, pk):
+    sub_title = get_object_or_404(SubTitle, pk=pk)
+    return render(request, "sub_detail.html", {"sub_title": sub_title})
 
 
 # ============ processing image page =============

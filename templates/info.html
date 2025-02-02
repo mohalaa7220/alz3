@@ -9,11 +9,12 @@
   <!-- ============= main ============ -->
   <div class="top">
     <div class="left">
-      <h1>Main Titles</h1>
       <ul>
         {% for main in main_titles %}
         <li>
-          <a href="{% url 'info_detail' main.pk %}">{{ main.title }}</a>
+          <a href="{% url 'info_detail' main.pk %}"
+            ><span>{{ main.title }}</span> →</a
+          >
         </li>
         {% endfor %}
       </ul>
