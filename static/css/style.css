@@ -714,3 +714,11 @@ ul.related_list a:hover {
     text-decoration: underline;
     color: var(--main-color);
 }
+
+.reset_btn {
+    width: 100%;
+    display: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-inline: 0;
+}

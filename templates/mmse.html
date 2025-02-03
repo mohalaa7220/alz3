@@ -8,83 +8,96 @@
 {% block content %}
 
 <div class="container">
-    <div class="quiz_parent">
-        <h1 class="text-center">Mini-Mental State Examination</h1>
-        <p>
-            The online MMSE calculator is the medical clinical online app for screening assessment of cognitive decline, including dementia due to Alzheimer's disease and subcortical brain impairment.
-        </p>
-        <div id="quiz">
-            {% for main_title in main_titles %}
-            <div class="main-title">
-                <h6>{{ main_title.title }}</h6>
-                <!-- Main title heading -->
+  <div class="quiz_parent">
+    <h1 class="text-center">Mini-Mental State Examination</h1>
+    <p>
+      The online MMSE calculator is the medical clinical online app for
+      screening assessment of cognitive decline, including dementia due to
+      Alzheimer's disease and subcortical brain impairment.
+    </p>
+    <div id="quiz">
+      {% for main_title in main_titles %}
+      <div class="main-title">
+        <h6>{{ main_title.title }}</h6>
+        <!-- Main title heading -->
 
-                {% for question in main_title.questions.all %}
-                <div class="question-item">
-                    <input type="checkbox" name="question_{{ question.id }}" id="question_{{ question.id }}" value="true" data-correct="{{ question.is_correct|lower }}" onclick="updateScore()" class="substituted" />
-                    <label for="question_{{ question.id }}"> {{ question.text }} </label>
-                </div>
-                {% endfor %}
-            </div>
-            {% endfor %}
-            <img src="{% static 'img/2.jpg' %}" alt="shape" />
+        {% for question in main_title.questions.all %}
+        <div class="question-item">
+          <input
+            type="checkbox"
+            name="question_{{ question.id }}"
+            id="question_{{ question.id }}"
+            value="true"
+            data-correct="{{ question.is_correct|lower }}"
+            onclick="updateScore()"
+            class="substituted"
+          />
+          <label for="question_{{ question.id }}"> {{ question.text }} </label>
         </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      <img src="{% static 'img/2.jpg' %}" alt="shape" />
     </div>
+  </div>
 
-    <div class="calc">
-        <button type="button" class="btn btn2 score_btn">Score</button>
-        <h2 class="show_score">Your Score: <span id="score">0</span></h2>
-        <h2 class="show_score">Result is: <span id="result"></span></h2>
-    </div>
+  <div class="calc">
+    <button type="button" class="btn btn2 score_btn">Score</button>
+    <h2 class="show_score">Your Score: <span id="score">0</span></h2>
+    <h2 class="show_score">Result is: <span id="result"></span></h2>
+    <a href="/mmse" type="button" class="btn btn2 reset_btn">Reset Exam</a>
+  </div>
 </div>
 
 <script>
-    const scoreParent = document.getElementById("score");
-    const resultParent = document.getElementById("result");
-    const scoreBtn = document.querySelector(".score_btn");
-    const showScore = document.querySelectorAll(".show_score");
-    const checkboxes = document.querySelectorAll(".question-item");
+  const scoreParent = document.getElementById("score");
+  const resultParent = document.getElementById("result");
+  const scoreBtn = document.querySelector(".score_btn");
+  const resetBtn = document.querySelector(".reset_btn");
+  const showScore = document.querySelectorAll(".show_score");
+  const checkboxes = document.querySelectorAll(".question-item");
 
-    let score = 0;
+  let score = 0;
 
-    function checkScore(scoreCheck) {
-        if (scoreCheck <= 30 && scoreCheck >= 26) {
-            resultParent.innerText = "None";
-        } else if (scoreCheck <= 25 && scoreCheck >= 20) {
-            resultParent.innerText = "Mild";
-        } else if (scoreCheck <= 19 && scoreCheck >= 10) {
-            resultParent.innerText = "Moderate";
-        } else {
-            resultParent.innerText = "خطرررررررررررر";
-        }
+  function checkScore(scoreCheck) {
+    if (scoreCheck <= 30 && scoreCheck >= 26) {
+      resultParent.innerText = "None";
+    } else if (scoreCheck <= 25 && scoreCheck >= 20) {
+      resultParent.innerText = "Mild";
+    } else if (scoreCheck <= 19 && scoreCheck >= 10) {
+      resultParent.innerText = "Moderate";
+    } else {
+      resultParent.innerText = "خطرررررررررررر";
     }
+  }
 
-    function updateScore() {
-        let newScore = 0;
-        const checkboxes = document.querySelectorAll(
-            "input[type='checkbox']:checked"
-        );
+  function updateScore() {
+    let newScore = 0;
+    const checkboxes = document.querySelectorAll(
+      "input[type='checkbox']:checked"
+    );
 
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                newScore += 1;
-            }
-        });
-        score = newScore;
-    }
-
-    scoreBtn.addEventListener("click", () => {
-        scoreParent.innerText = score;
-        checkScore(score);
-        showScore.forEach((element) => {
-            element.style.opacity = "1";
-        });
-        checkboxes.forEach((checkbox) => {
-            checkbox.style.pointerEvents = "none";
-            checkbox.style.opacity = "0.5";
-        });
-        scoreBtn.style.display = "none";
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        newScore += 1;
+      }
     });
+    score = newScore;
+  }
+
+  scoreBtn.addEventListener("click", () => {
+    scoreParent.innerText = score;
+    checkScore(score);
+    showScore.forEach((element) => {
+      element.style.opacity = "1";
+    });
+    checkboxes.forEach((checkbox) => {
+      checkbox.style.pointerEvents = "none";
+      checkbox.style.opacity = "0.5";
+    });
+    scoreBtn.style.display = "none";
+    resetBtn.style.display = "block";
+  });
 </script>
 
 {% endblock content %}
